@@ -23,7 +23,7 @@ For unbounded odd parameters, these graphs are shown to be continuously homomorp
 \section{Introduction}
 
 Throughout this entire work, $G$ denotes an analytic graph on a Polish space $V(G)=X$.
-That is, $X$ is a separable completely metrizable topological space, and $G$ is a symmetric and irreflexive relation on $X$ which, as a subspace of $X\times X$ is the continuous image of a Polish space.
+That is, $X$ is a separable completely metrizable topological space, and $G$ is a symmetric and irreflexive relation on $X$ which, as a subspace of $X\times X$, is the continuous image of a Polish space.
 
 I denote the \emph{Borel chromatic number} of $G$ by $\chi_B(G)$, that is, $\chi_B(G)$ is the least number of colours $k$ needed to find a mapping $c:X\to k$ in such a way that adjacent vertices in $G$ are given different colours.
 I employ the symbol $H\to_cG$ (respectively, $H\to_BG$) to abbreviate the fact that there is a continuous (respectively Borel) homomorphism from the analytic graph $H$ to the analytic graph $G$.
@@ -43,13 +43,12 @@ Interestingly, a similar fact holds for Borel graphs of uniformly bounded degree
 \section{Finite path approximations}
 
 Fix the parameter $c\in\omega^\omega$ and a path of length $\omega$ on the vertex set $\{p_n\}_{n<\omega}$.
-That is, $\{(p_n,p_{n+1}):n<\omega\}$.
+That is, the edge set $\{(p_n,p_{n+1}):n<\omega\}$.
 Naturally, one could assume that $p_n=n$, but the labeling helps distinguish these vertices from other indices.
 
-I recursively construct a family of graphs $\{L^c_n:n<\omega\}$ such that for all $n<\omega$, the following properties hold.
-Take note of the fact that to construct all elements of the family up to $L^c_n$, I only require knowledge of the value $c(n)$.
 Recall that if $s$ and $t$ are finite strings (of, say, natural numbers), then $s^\frown t$ is the \emph{concatenation} of $s$ and $t$.
 Similarly, $t^n$ is the repeated concatenation of $t$ with itself, and $(i)$ denotes the string of single value $i$.
+I recursively construct a family of graphs $\{L^c_n:n<\omega\}$ such that for all $n<\omega$, the following properties hold.
 
 \begin{enumerate}[label=(\roman*)]
     \item $L^c_n$ is a finite path.
@@ -64,6 +63,7 @@ I do this by simply appending $0$ to each vertex of the first copy, and $1$ to t
 Formally, I start by adding the vertex $v^\frown(i)$ for every $i<2$ and $v\in L^c_n$.
 Adding the path $$((e_1^n)^\smallfrown(0),p_0,p_1,\dots,p_{c(n)},(e_1^n)^\smallfrown(1))$$ completes the construction of $L^c_{n+1}$, and its endpoints are $$e_i^{n+1}=(e_0^n)^\smallfrown(i)=(p_0)^\smallfrown(0)^n{}^\smallfrown(i),$$ for $i<2$.
 This finishes the recursion.
+Note that to construct $L^c_{n+1}$ from $L^c_n$, I only require knowledge of the value $c(n)$.
 
 \begin{figure}
 \caption{$L^c_3$ where $c(n)=2n-1$.}
@@ -79,6 +79,7 @@ Based on this discussion, a vertex in some $L^c_n$ is completely determined by t
 
 \section{A notion of smallness for copies}
 
+Now, I define a notion of smallness analogous to the one presented in \cite{Bernshteyn2024}.
 By definition, the set of edges of $G$ is the continuous image of some Polish space $E$, let us say under $\pi$.
 For a finite graph $H$, consider $\Hom(H,G)$ as the set of all maps
 
@@ -98,7 +99,7 @@ Also, let $\mathcal H(uv):=\{\varphi(uv):\varphi\in\mathcal H\}$.
     \begin{enumerate}
         \item Let $k<\omega$. I say an analytic set $A\subseteq V(G)$ has property $\Phi(A,k)$ if all odd walks of $G$ with endpoints in $A$ have length at most $2k-1$.
 
-        \item For, $n>0$, a Borel set $\mathcal L\subseteq\Hom(L^c_n,G)$ is called \emph{tiny} if there is a non-path vertex $u\in V(L^c_n)$ and a natural $k$ such that $\Phi(\mathcal L(u),k)$. For $n=0$, $L^c_n$ is just an edge consisting of the two path vertices $p_0$ and $p_1$, so in this case I define $\mathcal L\subseteq\Hom(L^c_0,G)$ as \emph{tiny} if there is a natural $k$ such that $\Phi(\mathcal L(p_1),k)$.
+        \item For $n>0$, a Borel set $\mathcal L\subseteq\Hom(L^c_n,G)$ is called \emph{tiny} if there is a non-path vertex $u\in V(L^c_n)$ and a natural $k$ such that $\Phi(\mathcal L(u),k)$. In the special case when $n=0$ and $c(0)=1$, $L^c_n$ is just an edge consisting of the two path vertices $p_0$ and $p_1$, so in this case I define $\mathcal L\subseteq\Hom(L^c_0,G)$ as \emph{tiny} if there is a natural $k$ such that $\Phi(\mathcal L(p_1),k)$.
 
         \item A set $\mathcal L\subseteq\Hom(L,G)$ is \emph{small} if it is the countable union of tiny sets. This notion defines a $\sigma$-ideal.
 
