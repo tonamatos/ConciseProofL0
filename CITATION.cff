@@ -1,0 +1,10 @@
+cff-version: 1.0.0
+message: "Please cite as below."
+authors:
+  - family-names: "Matos-Wiederhold"
+    given-names: "Tonatiuh"
+title: "A Concise Proof of the $L_0$ Dichotomy"
+version: 1.0.0
+doi: ""
+date-released: 2026-03-16
+url: "https://tonamatos.github.io/ConciseProofL0/main.pdf"
