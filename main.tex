@@ -4,28 +4,22 @@
 
 \graphicspath{{./images/}}
 
-\DeclareMathOperator{\Hom}{Hom}
-
-\title{A Concise Proof of the $L_0$ Dichotomy}
-\author{Tonatiuh Matos-Wiederhold}
-\date{\today}
-
 \begin{document}
 
-\maketitle
+\makeboxedtitle{A Concise Proof of the $L_0$ Dichotomy}{
+    Tonatiuh Matos-Wiederhold
+}{}{
+    I give a new proof of the $L_0$ dichotomy for analytic graphs, based on Bernshteyn's proof of the $G_0$ dichotomy. Using a system of finite path approximations and a notion of smallness for families of homomorphisms, a canonical analytic graph of Borel chromatic number three is constructed. It is shown that every analytic graph of Borel chromatic number greater than two continuously admits this graph as a homomorphic image.
 
-\begin{abstract}
-I give a new proof of the $L_0$ dichotomy for analytic graphs, based on Bernshteyn's recent proof of the $G_0$ dichotomy. Using a system of finite path approximations and a notion of smallness for families of homomorphisms, a canonical analytic graph of Borel chromatic number three is constructed. It is shown that every analytic graph of Borel chromatic number greater than two continuously admits this graph as a homomorphic image.
+    For unbounded odd parameters, these graphs are shown to be continuously homomorphically equivalent, yielding a minimal obstruction to Borel 2-colourability.
+}
 
-For unbounded odd parameters, these graphs are shown to be continuously homomorphically equivalent, yielding a minimal obstruction to Borel 2-colourability.
-\end{abstract}
-
-\section{Introduction}
+\section{Introduction}\label{sec:concise-intro}
 
 Throughout this entire work, $G$ denotes an analytic graph on a Polish space $V(G)=X$.
 That is, $X$ is a separable completely metrizable topological space, and $G$ is a symmetric and irreflexive relation on $X$ which, as a subspace of $X\times X$, is the continuous image of a Polish space.
 
-I denote the \emph{Borel chromatic number} of $G$ by $\chi_B(G)$, that is, $\chi_B(G)$ is the least number of colours $k$ needed to find a mapping $c:X\to k$ in such a way that adjacent vertices in $G$ are given different colours.
+I denote the \emph{Borel chromatic number} of $G$ by $\chi_B(G)$, that is, $\chi_B(G)$ is the least number of colours $k$ needed to find a Borel mapping $c\colon X\to k$ in such a way that adjacent vertices in $G$ are given different colours.
 I employ the symbol $H\to_cG$ (respectively, $H\to_BG$) to abbreviate the fact that there is a continuous (respectively Borel) homomorphism from the analytic graph $H$ to the analytic graph $G$.
 It is straightforward to show the following.
 
@@ -40,7 +34,17 @@ Interestingly, a similar fact holds for Borel graphs of uniformly bounded degree
     If $G$ is a Borel graph on a Polish space all of whose degrees are bounded by the natural number $k$, then $\chi_B(G)\leq k+1$.
 \end{theorem}
 
-\section{Finite path approximations}
+The following notion is taken from \cite[Theorem~35.10, p.~285]{Kechris_1995_DescriptiveSetTheory} is a well-known fact about analytic sets.
+
+\begin{definition}\label{def:pi11-on-sigma11}
+    A subset $\Phi$ of a Polish space $X$ is said to be \emph{$\Pi^1_1$ on $\Sigma^1_1$} if for any Polish $Y$ and any $\Sigma^1_1$ set $A\subseteq Y\times X$, the set $A_\Phi:=\{y\in Y:A_y:=\{x\in X:(y,x)\in A\}\in\Phi\}$ is $\Pi^1_1$.
+\end{definition}
+
+\begin{lemma}[First Reflection Theorem]\label{lemma:first-reflection}
+    If $\Phi$ is as in the preceding definition, then for any $\Sigma^1_1$ set $A\in\Phi$, there is a Borel set $B\subseteq X$ such that $A\subseteq B$ and $B\in\Phi$.
+\end{lemma}
+
+\section{Finite path approximations}\label{sec:finite-path-approx}
 
 Fix the parameter $c\in\omega^\omega$ and a path of length $\omega$ on the vertex set $\{p_n\}_{n<\omega}$.
 That is, the edge set $\{(p_n,p_{n+1}):n<\omega\}$.
@@ -66,10 +70,10 @@ This finishes the recursion.
 Note that to construct $L^c_{n+1}$ from $L^c_n$, I only require knowledge of the value $c(n)$.
 
 \begin{figure}
-\caption{$L^c_3$ where $c(n)=2n-1$.}
-\label{fig:L_n}
-\includegraphics[width=0.8\textwidth]{L0_3}
-\centering
+    \caption{$L^c_3$ where $c(n)=2n-1$.}
+    \label{fig:L_n}
+    \includegraphics[width=0.8\textwidth]{L0_3}
+    \centering
 \end{figure}
 
 To develop some intuition on what (iii) says about a vertex $v$ in $L^c_n$: the number $|v|-1$ indicates that $v$ was added that many stages ago in the recursion, at the position of $p_k$ in the path joining the two copies of the previous paths; the sequence $t$ tells the story, in order, of which of the two copies of the previous path the vertex lies in.
@@ -77,7 +81,7 @@ In other words, vertices of the form $(p_k)^\smallfrown t$ for $t\in 2^n$ are pr
 
 Based on this discussion, a vertex in some $L^c_n$ is completely determined by the stage $n-m$ at which it was added in the position of $p_k$ and then copied according to the binary sequence $t$.
 
-\section{A notion of smallness for copies}
+\section{A notion of smallness for copies}\label{sec:notion-smallness}
 
 Now, I define a notion of smallness analogous to the one presented in \cite{Bernshteyn2024}.
 By definition, the set of edges of $G$ is the continuous image of some Polish space $E$, let us say under $\pi$.
@@ -109,7 +113,7 @@ Also, let $\mathcal H(uv):=\{\varphi(uv):\varphi\in\mathcal H\}$.
 
 I now invoke the following auxiliary result that links the 2-colourability and countable chromaticity of a graph in this context.
 
-\begin{lemma}[Claim~3.5 of \cite{L0paper}]\label{lemma:claim3.5}
+\begin{lemma}[Claim~3.5 of \cite{L0paper}]\label{lemma:L0-claim3.5}
     If $\Phi(A,n)$, then there is an invariant (meaning union of connected components) Borel set $B\supseteq[A]_{E_G}$ that induces a 2-Borel-colourable subgraph of $G$, that is, there is a Borel proper colouring $c_B:G\restriction B\to2$.
 \end{lemma}
 
@@ -119,7 +123,7 @@ I now invoke the following auxiliary result that links the 2-colourability and c
 
 \begin{proof}[Proof of theorem]
     Suppose that $V(G)=\bigcup_{m<\omega}\mathcal H_m$ where each $\mathcal H_m$ is a tiny Borel set.
-    By Lemma~\ref{lemma:claim3.5}, there is a $G$-invariant Borel set $B_m\supseteq[\mathcal H_m]_{E_G}$ with a Borel 2-colouring $c_m$.
+    By Lemma~\ref{lemma:L0-claim3.5}, there is a $G$-invariant Borel set $B_m\supseteq[\mathcal H_m]_{E_G}$ with a Borel 2-colouring $c_m$.
     Define $c:V(G)\to2$ by letting $m(x):=\min\{m<\omega:x\in B_m\}$ and $c(x)=c_{m(x)}(x)$.
     Then $c$ is a Borel 2-colouring because each $B_m$ is $G$-invariant.
 \end{proof}
@@ -158,8 +162,15 @@ Notice that, for two reals $c,d\in\omega^\omega$, if $d\restriction n=c\restrict
     Suppose that for all $d$ that are equal to $c$ except in the $n$-th value, $\mathcal L^{+d}=\bigcup_m\mathcal F^d_m$ where each $\mathcal F^d_m$ is a tiny Borel subset of $\Hom(L^d_{n+1},G)$.
     For each $m$ and $d$, let $v^d_m\in V(L^d_n)$, $i^d_m<2$ and $n_d(m)$ be the minimal natural such that $\Phi(\mathcal F^d_m({v^d_m}^\frown(i^d_m)),m_d(n))$.
     
-    Now use the Reflection Lemma (reference \ref{lemma:reflection} to be added) to find a Borel $B^d_m\supseteq\mathcal F^d_m(v_m^\frown(i_m))$ such that $\Phi(B^d_m,m_d(n))$.
-    Consider $\mathcal H^d_m=\{\varphi\in\mathcal L:\varphi(v^d_m)\in B^d_m\}$, which is a Borel tiny subset of $\Hom(L^d_n,G)=\Hom(L^c_n,G)$.
+    \begin{claim}
+        There is a Borel $B^d_m\supseteq\mathcal F^d_m(v_m^\frown(i_m))$ such that $\Phi(B^d_m,m_d(n))$.
+    \end{claim}
+
+    \begin{claimproof}
+        Now use the First Reflection Theorem (Lemma~\ref{lemma:first-reflection}) to find 
+    \end{claimproof}
+
+    Take $\mathcal H^d_m=\{\varphi\in\mathcal L:\varphi(v^d_m)\in B^d_m\}$, which is a Borel tiny subset of $\Hom(L^d_n,G)=\Hom(L^c_n,G)$.
     Indeed, notice that $\mathcal H^d_m(v^d_m)=\{\varphi(v^d_m):\varphi\in\mathcal H^d_m\}=\{\varphi(v^d_m):\varphi\in\mathcal L\land\varphi(v^d_m)\in B^d_m\}\subseteq B^d_m$.
     
     Consider the large Borel set $\mathcal L_-$ obtained from removing from $\mathcal L$ the countable union of all tiny sets of the form $\mathcal H^d_m$.
@@ -167,7 +178,7 @@ Notice that, for two reals $c,d\in\omega^\omega$, if $d\restriction n=c\restrict
     Suppose that $\varphi\in\mathcal F^d_m$, then $\varphi^{i_m^d}(v_m)=\varphi({v_m^d}^\frown(i^d_m))\in\mathcal F^d_m({v_m^d}^\frown(i_m^d))\subseteq B_m$, which means that $\varphi^{i_m^d}\in\mathcal H_m^d\cap\mathcal L_-=\emptyset$; a contradiction.
 \end{proof}
 
-\section{Construction of a minimal graph of Borel chromatic number at least 3}
+\section{Construction of a minimal graph of Borel chromatic number at least 3}\label{sec:L0-construction}
 
 The goal of this section it to construct a family of graphs $\mathbb L_c$ indexed by reals $c\in\omega^\omega$.
 
@@ -203,17 +214,17 @@ Some basic properties of $\mathbb L_c$ follow.
 
 The main result is then split into two parts.
 
-\begin{theorem}\label{thm:main}
+\begin{theorem}\label{thm:L0-hom-equivalent-main}
     For any analytic graph $G$, either $\chi_B(G)\leq 2$ or there is a $c$ such that $\mathbb L_c\to_cG$.
 \end{theorem}
 
 Moreover, $c$ can be chosen to be unbounded and take only odd values.
 
-\begin{theorem}\label{thm:L0}
+\begin{theorem}\label{thm:L0-hom-equivalent}
     Let $c,d\in\omega^\omega$ be unbounded and only taking odd values, then $\mathbb L_c$ and $\mathbb L_d$ are continuously homomorphically equivalent.
 \end{theorem}
 
-\section{Proof of Theorem~\ref{thm:main}}
+\section{Proof of Theorem~\ref{thm:L0-hom-equivalent-main}}
 
 By Lemma~\ref{lemma:L0_basics}(c) and Fact~\ref{prop:brooks}, it is clear that both conditions cannot hold simultaneously.
 Now suppose that $G$ is an analytic graph of Borel chromatic number at least three.
@@ -240,7 +251,7 @@ Thus the images form an edge of $G$.
 
 %Bibliography
 \nocite{*}
-\bibliographystyle{alphaurl}  
+\bibliographystyle{alphaurl}
 \bibliography{bibliography/references}
 
 \end{document}
