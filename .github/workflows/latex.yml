@@ -1,0 +1,15 @@
+steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+
+      - name: Prepare Deployment Folder
+        run: |
+          mkdir public
+          mv main.pdf public/paper.pdf
