@@ -1,0 +1,160 @@
+% figures/L0_figure.tex
+
+\begin{tikzpicture}[
+    scale=0.78, transform shape,
+    copycolor/.style={fill=blue!18, draw=black!70},
+    joinone/.style={fill=green!28, draw=black!70},
+    jointwo/.style={fill=orange!35, draw=black!70},
+    jointhree/.style={fill=red!30, draw=black!70},
+    nd/.style={circle, minimum size=5.5pt, inner sep=0pt, font=\scriptsize},
+    every edge/.style={draw=black!50, thick},
+]
+
+% Edges
+    \draw[thick, black!40] (0.00,0.00) -- (1.60,0.00);
+    \draw[thick, black!40] (1.60,0.00) -- (3.20,0.00);
+    \draw[thick, black!40] (3.20,0.00) -- (4.80,0.00);
+    \draw[thick, black!40] (4.80,0.00) -- (6.40,0.00);
+    \draw[thick, black!40] (6.40,0.00) -- (8.00,0.00);
+    \draw[thick, black!40] (8.00,0.00) -- (8.96,-0.65);
+    \draw[thick, black!40] (8.96,-0.65) -- (8.96,-1.30);
+    \draw[thick, black!40] (8.96,-1.30) -- (8.96,-1.95);
+    \draw[thick, black!40] (8.96,-1.95) -- (8.96,-2.60);
+    \draw[thick, black!40] (8.96,-2.60) -- (8.00,-3.30);
+    \draw[thick, black!40] (8.00,-3.30) -- (6.40,-3.30);
+    \draw[thick, black!40] (6.40,-3.30) -- (4.80,-3.30);
+    \draw[thick, black!40] (4.80,-3.30) -- (3.20,-3.30);
+    \draw[thick, black!40] (3.20,-3.30) -- (1.60,-3.30);
+    \draw[thick, black!40] (1.60,-3.30) -- (0.00,-3.30);
+    \draw[thick, black!40] (0.00,-3.30) -- (-0.96,-3.95);
+    \draw[thick, black!40] (-0.96,-3.95) -- (-0.96,-4.60);
+    \draw[thick, black!40] (-0.96,-4.60) -- (-0.96,-5.25);
+    \draw[thick, black!40] (-0.96,-5.25) -- (-0.96,-5.90);
+    \draw[thick, black!40] (-0.96,-5.90) -- (-0.96,-6.55);
+    \draw[thick, black!40] (-0.96,-6.55) -- (-0.96,-7.20);
+    \draw[thick, black!40] (-0.96,-7.20) -- (0.00,-7.90);
+    \draw[thick, black!40] (0.00,-7.90) -- (1.60,-7.90);
+    \draw[thick, black!40] (1.60,-7.90) -- (3.20,-7.90);
+    \draw[thick, black!40] (3.20,-7.90) -- (4.80,-7.90);
+    \draw[thick, black!40] (4.80,-7.90) -- (6.40,-7.90);
+    \draw[thick, black!40] (6.40,-7.90) -- (8.00,-7.90);
+    \draw[thick, black!40] (8.00,-7.90) -- (8.96,-8.55);
+    \draw[thick, black!40] (8.96,-8.55) -- (8.96,-9.20);
+    \draw[thick, black!40] (8.96,-9.20) -- (8.96,-9.85);
+    \draw[thick, black!40] (8.96,-9.85) -- (8.96,-10.50);
+    \draw[thick, black!40] (8.96,-10.50) -- (8.00,-11.20);
+    \draw[thick, black!40] (8.00,-11.20) -- (6.40,-11.20);
+    \draw[thick, black!40] (6.40,-11.20) -- (4.80,-11.20);
+    \draw[thick, black!40] (4.80,-11.20) -- (3.20,-11.20);
+    \draw[thick, black!40] (3.20,-11.20) -- (1.60,-11.20);
+    \draw[thick, black!40] (1.60,-11.20) -- (0.00,-11.20);
+
+% Nodes
+    \node[nd, copycolor] (v0) at (0.00,0.00) {};
+    \node[above=1pt, font=\tiny] at (v0) {$(0{,}0{,}0{,}0)$};
+    \node[nd, copycolor] (v1) at (1.60,0.00) {};
+    \node[above=1pt, font=\tiny] at (v1) {$(1{,}0{,}0{,}0)$};
+    \node[nd, joinone] (v2) at (3.20,0.00) {};
+    \node[above=1pt, font=\tiny] at (v2) {$(0{,}0{,}0)$};
+    \node[nd, joinone] (v3) at (4.80,0.00) {};
+    \node[above=1pt, font=\tiny] at (v3) {$(1{,}0{,}0)$};
+    \node[nd, copycolor] (v4) at (6.40,0.00) {};
+    \node[above=1pt, font=\tiny] at (v4) {$(1{,}1{,}0{,}0)$};
+    \node[nd, copycolor] (v5) at (8.00,0.00) {};
+    \node[above=1pt, font=\tiny] at (v5) {$(0{,}1{,}0{,}0)$};
+    \node[nd, jointwo] (v6) at (8.96,-0.65) {};
+    \node[right=1pt, font=\tiny] at (v6) {$(0{,}0)$};
+    \node[nd, jointwo] (v7) at (8.96,-1.30) {};
+    \node[right=1pt, font=\tiny] at (v7) {$(1{,}0)$};
+    \node[nd, jointwo] (v8) at (8.96,-1.95) {};
+    \node[right=1pt, font=\tiny] at (v8) {$(2{,}0)$};
+    \node[nd, jointwo] (v9) at (8.96,-2.60) {};
+    \node[right=1pt, font=\tiny] at (v9) {$(3{,}0)$};
+    \node[nd, copycolor] (v10) at (8.00,-3.30) {};
+    \node[below=1pt, font=\tiny] at (v10) {$(0{,}1{,}1{,}0)$};
+    \node[nd, copycolor] (v11) at (6.40,-3.30) {};
+    \node[below=1pt, font=\tiny] at (v11) {$(1{,}1{,}1{,}0)$};
+    \node[nd, joinone] (v12) at (4.80,-3.30) {};
+    \node[below=1pt, font=\tiny] at (v12) {$(1{,}1{,}0)$};
+    \node[nd, joinone] (v13) at (3.20,-3.30) {};
+    \node[below=1pt, font=\tiny] at (v13) {$(0{,}1{,}0)$};
+    \node[nd, copycolor] (v14) at (1.60,-3.30) {};
+    \node[below=1pt, font=\tiny] at (v14) {$(1{,}0{,}1{,}0)$};
+    \node[nd, copycolor] (v15) at (0.00,-3.30) {};
+    \node[below=1pt, font=\tiny] at (v15) {$(0{,}0{,}1{,}0)$};
+    \node[nd, jointhree] (v16) at (-0.96,-3.95) {};
+    \node[left=1pt, font=\tiny] at (v16) {$(0)$};
+    \node[nd, jointhree] (v17) at (-0.96,-4.60) {};
+    \node[left=1pt, font=\tiny] at (v17) {$(1)$};
+    \node[nd, jointhree] (v18) at (-0.96,-5.25) {};
+    \node[left=1pt, font=\tiny] at (v18) {$(2)$};
+    \node[nd, jointhree] (v19) at (-0.96,-5.90) {};
+    \node[left=1pt, font=\tiny] at (v19) {$(3)$};
+    \node[nd, jointhree] (v20) at (-0.96,-6.55) {};
+    \node[left=1pt, font=\tiny] at (v20) {$(4)$};
+    \node[nd, jointhree] (v21) at (-0.96,-7.20) {};
+    \node[left=1pt, font=\tiny] at (v21) {$(5)$};
+    \node[nd, copycolor] (v22) at (0.00,-7.90) {};
+    \node[above=1pt, font=\tiny] at (v22) {$(0{,}0{,}1{,}1)$};
+    \node[nd, copycolor] (v23) at (1.60,-7.90) {};
+    \node[above=1pt, font=\tiny] at (v23) {$(1{,}0{,}1{,}1)$};
+    \node[nd, joinone] (v24) at (3.20,-7.90) {};
+    \node[above=1pt, font=\tiny] at (v24) {$(0{,}1{,}1)$};
+    \node[nd, joinone] (v25) at (4.80,-7.90) {};
+    \node[above=1pt, font=\tiny] at (v25) {$(1{,}1{,}1)$};
+    \node[nd, copycolor] (v26) at (6.40,-7.90) {};
+    \node[above=1pt, font=\tiny] at (v26) {$(1{,}1{,}1{,}1)$};
+    \node[nd, copycolor] (v27) at (8.00,-7.90) {};
+    \node[above=1pt, font=\tiny] at (v27) {$(0{,}1{,}1{,}1)$};
+    \node[nd, jointwo] (v28) at (8.96,-8.55) {};
+    \node[right=1pt, font=\tiny] at (v28) {$(0{,}1)$};
+    \node[nd, jointwo] (v29) at (8.96,-9.20) {};
+    \node[right=1pt, font=\tiny] at (v29) {$(1{,}1)$};
+    \node[nd, jointwo] (v30) at (8.96,-9.85) {};
+    \node[right=1pt, font=\tiny] at (v30) {$(2{,}1)$};
+    \node[nd, jointwo] (v31) at (8.96,-10.50) {};
+    \node[right=1pt, font=\tiny] at (v31) {$(3{,}1)$};
+    \node[nd, copycolor] (v32) at (8.00,-11.20) {};
+    \node[below=1pt, font=\tiny] at (v32) {$(0{,}1{,}0{,}1)$};
+    \node[nd, copycolor] (v33) at (6.40,-11.20) {};
+    \node[below=1pt, font=\tiny] at (v33) {$(1{,}1{,}0{,}1)$};
+    \node[nd, joinone] (v34) at (4.80,-11.20) {};
+    \node[below=1pt, font=\tiny] at (v34) {$(1{,}0{,}1)$};
+    \node[nd, joinone] (v35) at (3.20,-11.20) {};
+    \node[below=1pt, font=\tiny] at (v35) {$(0{,}0{,}1)$};
+    \node[nd, copycolor] (v36) at (1.60,-11.20) {};
+    \node[below=1pt, font=\tiny] at (v36) {$(1{,}0{,}0{,}1)$};
+    \node[nd, copycolor] (v37) at (0.00,-11.20) {};
+    \node[below=1pt, font=\tiny] at (v37) {$(0{,}0{,}0{,}1)$};
+
+% Direction arrows for L_0 copies
+    \draw[->, thick, blue!60] (0.00,0.55) -- (1.60,0.55);
+    \draw[->, thick, blue!60] (8.00,0.55) -- (6.40,0.55);
+    \draw[->, thick, blue!60] (8.00,-3.85) -- (6.40,-3.85);
+    \draw[->, thick, blue!60] (0.00,-3.85) -- (1.60,-3.85);
+    \draw[->, thick, blue!60] (0.00,-7.35) -- (1.60,-7.35);
+    \draw[->, thick, blue!60] (8.00,-7.35) -- (6.40,-7.35);
+    \draw[->, thick, blue!60] (8.00,-11.75) -- (6.40,-11.75);
+    \draw[->, thick, blue!60] (0.00,-11.75) -- (1.60,-11.75);
+
+% Structural braces
+    \draw[decorate, decoration={brace, amplitude=6pt, mirror}, thick, black!50]
+        (9.76,0.40) -- (9.76,-3.70)
+        node[midway, right=8pt, font=\footnotesize] {$L^c_2$ copy $0$};
+    \draw[decorate, decoration={brace, amplitude=6pt, mirror}, thick, black!50]
+        (9.76,-7.50) -- (9.76,-11.60)
+        node[midway, right=8pt, font=\footnotesize] {$L^c_2$ copy $1$};
+    \node[font=\footnotesize, text=red!60!black] at (-1.76,-5.57) {\rotatebox{90}{join $c(2){=}5$}};
+    \node[font=\tiny, text=orange!70!black] at (9.66,-1.62) {\rotatebox{90}{join $c(1){=}3$}};
+    \node[font=\tiny, text=orange!70!black] at (9.66,-9.52) {\rotatebox{90}{join $c(1){=}3$}};
+
+% Legend
+    \node[nd, copycolor, minimum size=7pt] at (0,-12.40) {};
+    \node[right=3pt, font=\scriptsize] at (0.15,-12.40) {$L_0$ copy};
+    \node[nd, joinone, minimum size=7pt] at (2.0,-12.40) {};
+    \node[right=3pt, font=\scriptsize] at (2.15,-12.40) {level-1 join};
+    \node[nd, jointwo, minimum size=7pt] at (4.4,-12.40) {};
+    \node[right=3pt, font=\scriptsize] at (4.55,-12.40) {level-2 join};
+    \node[nd, jointhree, minimum size=7pt] at (6.8,-12.40) {};
+    \node[right=3pt, font=\scriptsize] at (6.95,-12.40) {level-3 join};
+\end{tikzpicture}

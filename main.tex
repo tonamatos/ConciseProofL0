@@ -2,16 +2,14 @@
 
 \usepackage{common/tonas-papers}
 
-\graphicspath{{./images/}}
-
 \begin{document}
 
 \makeboxedtitle{A Concise Proof of the $L_0$ Dichotomy}{
     Tonatiuh Matos-Wiederhold
 }{}{
-    I give a new proof of the $L_0$ dichotomy for analytic graphs, based on Bernshteyn's proof of the $G_0$ dichotomy. Using a system of finite path approximations and a notion of smallness for families of homomorphisms, a canonical analytic graph of Borel chromatic number three is constructed. It is shown that every analytic graph of Borel chromatic number greater than two continuously admits this graph as a homomorphic image.
+    Carroy, Miller, Schrittesser, and Vidny\'anszky established the $L_0$ dichotomy: there is a Borel graph of Borel chromatic number three that admits a continuous homomorphism to every analytic graph of Borel chromatic number at least three. Their proof relies on a transfinite analysis of terminal approximations over a decreasing $\omega_1$-sequence of analytic sets.
 
-    For unbounded odd parameters, these graphs are shown to be continuously homomorphically equivalent, yielding a minimal obstruction to Borel 2-colourability.
+    I give a new, substantially shorter proof of this result by adapting the graph-theoretic framework recently introduced by Bernshteyn for the $G_0$ dichotomy. The central device is a $\sigma$-ideal of \emph{small} sets of homomorphisms from finite path approximations into the target graph, where smallness is witnessed by a bounded odd-walk condition on vertex projections. The key lemma that largeness is preserved under the doubling operation is established via the First Reflection Theorem, replacing the original transfinite construction with a single Borel reflection argument. The continuous homomorphism from the canonical graph $\mathbb L_c$ into the target is then obtained as a limit of shrinking families of copies, in direct analogy with Bernshteyn's proof for $G_0$.
 }
 
 \section{Introduction}\label{sec:concise-intro}
@@ -34,10 +32,10 @@ Interestingly, a similar fact holds for Borel graphs of uniformly bounded degree
     If $G$ is a Borel graph on a Polish space all of whose degrees are bounded by the natural number $k$, then $\chi_B(G)\leq k+1$.
 \end{theorem}
 
-The following notion is taken from \cite[Theorem~35.10, p.~285]{Kechris_1995_DescriptiveSetTheory} is a well-known fact about analytic sets.
+The following notion, taken from \cite[Theorem~35.10, p.~285]{Kechris_1995_DescriptiveSetTheory}, is a well-known fact about analytic sets.
 
 \begin{definition}\label{def:pi11-on-sigma11}
-    A subset $\Phi$ of a Polish space $X$ is said to be \emph{$\Pi^1_1$ on $\Sigma^1_1$} if for any Polish $Y$ and any $\Sigma^1_1$ set $A\subseteq Y\times X$, the set $A_\Phi:=\{y\in Y:A_y:=\{x\in X:(y,x)\in A\}\in\Phi\}$ is $\Pi^1_1$.
+    A collection of subsets $\Phi$ of a Polish space $X$ is said to be \emph{$\Pi^1_1$ on $\Sigma^1_1$} if for any Polish $Y$ and any $\Sigma^1_1$ set $A\subseteq Y\times X$, the set $A_\Phi:=\{y\in Y:A_y:=\{x\in X:(y,x)\in A\}\in\Phi\}$ is $\Pi^1_1$.
 \end{definition}
 
 \begin{lemma}[First Reflection Theorem]\label{lemma:first-reflection}
@@ -60,20 +58,20 @@ I recursively construct a family of graphs $\{L^c_n:n<\omega\}$ such that for al
     \item Every vertex of $L^c_n$ is of the form $(p_k)^\smallfrown t$ for some $k$ and $t\in2^{\leq n}$. Unless $t=\emptyset$, I call the vertex a \emph{non-path} vertex.
 \end{enumerate}
 
-Start with $L^c_0=\{(p_0,\dots,p_{c(0)})\}$.
+Start with $L^c_0$ as the graph consisting of a single vertex $p_0$ and no edges, and set $e^0_0=e^0_1=p_0$.
 Now suppose that $L^c_n$ has been constructed.
-$L^c_{n+1}$ will be a path obtained from joining two copies of $L^c_n$ by a path of length $c(n)$ (meaning, $c(n)$ \emph{edges}), but I must update the vertex labels in order to distinguish the two copies.
+$L^c_{n+1}$ will be a path obtained from joining two copies of $L^c_n$ by a path of $c(n)+2$ edges (with $c(n)+1$ \emph{new} path vertices), but I must update the vertex labels in order to distinguish the two copies.
 I do this by simply appending $0$ to each vertex of the first copy, and $1$ to the other.
 Formally, I start by adding the vertex $v^\frown(i)$ for every $i<2$ and $v\in L^c_n$.
 Adding the path $$((e_1^n)^\smallfrown(0),p_0,p_1,\dots,p_{c(n)},(e_1^n)^\smallfrown(1))$$ completes the construction of $L^c_{n+1}$, and its endpoints are $$e_i^{n+1}=(e_0^n)^\smallfrown(i)=(p_0)^\smallfrown(0)^n{}^\smallfrown(i),$$ for $i<2$.
 This finishes the recursion.
 Note that to construct $L^c_{n+1}$ from $L^c_n$, I only require knowledge of the value $c(n)$.
 
-\begin{figure}
-    \caption{$L^c_3$ where $c(n)=2n-1$.}
-    \label{fig:L_n}
-    \includegraphics[width=0.8\textwidth]{L0_3}
+\begin{figure}[ht]
     \centering
+    \input{figures/L0_figure.tex}
+    \caption{$L_3^c$ for $c(0)=1,c(1)=3,c(2)=5$.}
+    \label{fig:L_n}
 \end{figure}
 
 To develop some intuition on what (iii) says about a vertex $v$ in $L^c_n$: the number $|v|-1$ indicates that $v$ was added that many stages ago in the recursion, at the position of $p_k$ in the path joining the two copies of the previous paths; the sequence $t$ tells the story, in order, of which of the two copies of the previous path the vertex lies in.
@@ -88,8 +86,8 @@ By definition, the set of edges of $G$ is the continuous image of some Polish sp
 For a finite graph $H$, consider $\Hom(H,G)$ as the set of all maps
 
 \begin{align*}
-    &\varphi:V(H)\to V(G)\\
-    &\varphi:E(H)\to E
+    &\varphi\colon V(H)\to V(G)\\
+    &\varphi\colon E(H)\to E
 \end{align*}
 
 that satisfy that for all $uv\in E(H)$, $\pi(\varphi(uv))=\varphi(u)\varphi(v)$.
@@ -103,18 +101,19 @@ Also, let $\mathcal H(uv):=\{\varphi(uv):\varphi\in\mathcal H\}$.
     \begin{enumerate}
         \item Let $k<\omega$. I say an analytic set $A\subseteq V(G)$ has property $\Phi(A,k)$ if all odd walks of $G$ with endpoints in $A$ have length at most $2k-1$.
 
-        \item For $n>0$, a Borel set $\mathcal L\subseteq\Hom(L^c_n,G)$ is called \emph{tiny} if there is a non-path vertex $u\in V(L^c_n)$ and a natural $k$ such that $\Phi(\mathcal L(u),k)$. In the special case when $n=0$ and $c(0)=1$, $L^c_n$ is just an edge consisting of the two path vertices $p_0$ and $p_1$, so in this case I define $\mathcal L\subseteq\Hom(L^c_0,G)$ as \emph{tiny} if there is a natural $k$ such that $\Phi(\mathcal L(p_1),k)$.
+        \item A Borel set $\mathcal L\subseteq\Hom(L^c_n,G)$ is called \emph{tiny} if there is a vertex $u\in V(L^c_n)$ and a natural $k$ such that $\Phi(\mathcal L(u),k)$.
 
-        \item A set $\mathcal L\subseteq\Hom(L,G)$ is \emph{small} if it is the countable union of tiny sets. This notion defines a $\sigma$-ideal.
+        \item A set $\mathcal L\subseteq\Hom(L^c_n,G)$ is \emph{small} if it is the countable union of tiny sets. This notion defines a $\sigma$-ideal.
 
         \item A set is \emph{large} if it is not small. Notice that when $H$ is the graph of a single vertex $H=\bullet$, I can identify $\Hom(H,G)$ with $V(G)$ and then for any $\mathcal H\subseteq\Hom(\bullet,G)$, $\mathcal H(\bullet)$ is identified with $\mathcal H$.
     \end{enumerate}
 \end{definition}
 
-I now invoke the following auxiliary result that links the 2-colourability and countable chromaticity of a graph in this context.
+I now invoke the following auxiliary result that links the $\Phi$ property to Borel 2-colourability.
+The proof proceeds by induction on $n$ using analytic separation; see \cite[Claims~3.3--3.5]{L0paper} for details.
 
 \begin{lemma}[Claim~3.5 of \cite{L0paper}]\label{lemma:L0-claim3.5}
-    If $\Phi(A,n)$, then there is an invariant (meaning union of connected components) Borel set $B\supseteq[A]_{E_G}$ that induces a 2-Borel-colourable subgraph of $G$, that is, there is a Borel proper colouring $c_B:G\restriction B\to2$.
+    If $\Phi(A,n)$, then there is an invariant (meaning union of connected components) Borel set $B\supseteq[A]_{E_G}$ that induces a 2-Borel-colourable subgraph of $G$, that is, there is a Borel proper colouring $c_B\colon G\restriction B\to2$.
 \end{lemma}
 
 \begin{theorem}\label{thm:small}
@@ -124,12 +123,12 @@ I now invoke the following auxiliary result that links the 2-colourability and c
 \begin{proof}[Proof of theorem]
     Suppose that $V(G)=\bigcup_{m<\omega}\mathcal H_m$ where each $\mathcal H_m$ is a tiny Borel set.
     By Lemma~\ref{lemma:L0-claim3.5}, there is a $G$-invariant Borel set $B_m\supseteq[\mathcal H_m]_{E_G}$ with a Borel 2-colouring $c_m$.
-    Define $c:V(G)\to2$ by letting $m(x):=\min\{m<\omega:x\in B_m\}$ and $c(x)=c_{m(x)}(x)$.
+    Define $c\colon V(G)\to2$ by letting $m(x):=\min\{m<\omega:x\in B_m\}$ and $c(x)=c_{m(x)}(x)$.
     Then $c$ is a Borel 2-colouring because each $B_m$ is $G$-invariant.
 \end{proof}
 
 $L^c_{n+1}$ is obtained from two copies of $L^c_n$ joined by a path, so I need a way to refer to the distinct copies of $L^c_n$ inside of $L^c_{n+1}$.
-By (iii) above, for every $\varphi\in\Hom(L^c_{n+1},G)$, I define $\varphi^i\in\Hom(L^c_n,G)$ on every non-path vertex $u$ of $L^c_n$ by $\varphi^i(u)=\varphi(u^\frown (i))$ for all $u\in V(L^c_n)$ and $\varphi^i(uv)=\varphi(u^\frown(i),v^\frown(i))$ for all $(u,v)\in E(L^c_n)$.
+By (iii) above, for every $\varphi\in\Hom(L^c_{n+1},G)$ and $i<2$, I define $\varphi^i\in\Hom(L^c_n,G)$ by $\varphi^i(u)=\varphi(u^\frown (i))$ for all $u\in V(L^c_n)$ and $\varphi^i(uv)=\varphi(u^\frown(i),v^\frown(i))$ for all $(u,v)\in E(L^c_n)$.
 Thus, given $\mathcal L\subseteq\Hom(L^c_n,G)$, I define $\mathcal L^{+c}$ as the set of all $\varphi\in\Hom(L^c_{n+1},G)$ for which $\varphi^i\in\mathcal L$ for both $i<2$.
 Notice that if $\mathcal L$ is Borel, then so is $\mathcal L^{+c}$.
 
@@ -138,51 +137,85 @@ Formally, one adjusts the parameter $c$ by moving into a different branch of the
 Notice that, for two reals $c,d\in\omega^\omega$, if $d\restriction n=c\restriction n$, then $L^c_k=L^d_k$ for all $k<n$.
 
 \begin{lemma}\label{lemma:Ln_basics}~ 
-    Let $n>0$.
     \begin{enumerate}[label=(\alph*)]
-        \item Suppose that $c$ only takes odd values, that $k$ is a natural and $t\in2^{<n}$ is such that $(p_k)^\smallfrown t^\smallfrown(i)$, for $i<2$, are non-path vertices of $L^c_n$ (see (iii) above). Then, they are an odd distance apart in $L^c_n$.
+        \item Suppose that $n>0$, that $c$ only takes odd values, that $k$ is a natural and $t\in2^{<n}$ is such that $(p_k)^\smallfrown t^\smallfrown(i)$, for $i<2$, are vertices of $L^c_n$ (see (iii) above). Then, they are an odd distance apart in $L^c_n$.
 
-        \item If $\mathcal L\subseteq\Hom(L^c_n,G)$ is a large Borel set, then there exists $d\in\omega^\omega$ such that $d\restriction n=c\restriction n$ and $\mathcal L^{+d}$ is a nonempty subset of $\Hom(L^{d}_{n+1},G)$.
+        \item For any $n<\omega$, if $\mathcal L\subseteq\Hom(L^c_n,G)$ is a large Borel set, then for any $N<\omega$ there exists $d\in\omega^\omega$ such that $d\restriction n=c\restriction n$, $d(n)\geq N$ is odd, and $\mathcal L^{+d}$ is a nonempty subset of $\Hom(L^{d}_{n+1},G)$.
 
-        \item If $\mathcal L\subseteq\Hom(L^c_n,G)$ is a large Borel set, then there exists $d\in\omega^\omega$ such that $d\restriction n=c\restriction n$ and $\mathcal L^{+d}$ is a large subset of $\Hom(L^{d}_{n+1},G)$.
+        \item For any $n<\omega$, if $\mathcal L\subseteq\Hom(L^c_n,G)$ is a large Borel set, then there exists $d\in\omega^\omega$ such that $d\restriction n=c\restriction n$ and $\mathcal L^{+d}$ is a large subset of $\Hom(L^{d}_{n+1},G)$.
     \end{enumerate}
 \end{lemma}
 
 \begin{proof}
-    For (a), observe that both vertices come from the same vertex in $L^c_{n-1}$, and so their distance in $L^c_n$ is twice the distance to $e_1^{n-1}$ plus the length of the joining path, hence odd.
+    For (a), observe that both vertices come from the same vertex $(p_k)^\smallfrown t$ in $L^c_{|t|+1}$, and so their distance in $L^c_n$ is twice the distance from $(p_k)^\smallfrown t$ to $e_1^{|t|}$ in $L^c_{|t|+1}$ plus the length of the joining path at that stage, which is $c(|t|)+2$.
+    Since $c(|t|)$ is odd, $c(|t|)+2$ is odd, and hence their total distance is even plus odd, which is odd.
 
-    (b) follows from the fact that if $\mathcal L$ is large, it is not tiny.
-    Hence, $\mathcal L(e_1^n)$ contains the endpoints of a minimal odd path of length $k\geq2n+1>2$, that is, there are $\varphi_0,\varphi_1\in\mathcal L$ and a path in $G$ $(\varphi_0(e_1^n)=v_0,\dots,v_k=\varphi_1(e_1^n))$.
-    Let $e_1,\dots,e_k\in E$ be such that $\pi(e_j)=(v_{j-1},v_j)$.
-    Defining $d(n)=k-2$ and $d(x)=c(x)$ for all $x\neq n$, notice that, by the remark preceding this lemma, $L^c_n=L^d_n$.
-    I find $\varphi\in\Hom(L_{n+1}^d,G)$ be given by $\varphi^0=\varphi_0$, $\varphi^1=\varphi_1$ and $\varphi(p_i)=v_{i+1}$ for $0\leq i\leq k-2=d(n)$; the edges are given by $\varphi(p_j,p_{j+1})=e_j$ for $0\leq j<k-2$, $\varphi({e_1^n}^\frown (0),p_0)=e_1$ and $\varphi(p_{k-2},{e_1^n}^\frown (1))=e_k$.
+    For (b), since $\mathcal L$ is large, it is not tiny.
+    Hence, for every vertex $u\in V(L^c_n)$ and every natural $k$, $\Phi(\mathcal L(u),k)$ fails.
+    In particular, fix the gluing vertex $u_0:=e_1^n\in V(L^c_n)$ (recall that $e_1^0=p_0$).
+    Then for every $k$ there exist $\varphi_0,\varphi_1\in\mathcal L$ and an odd walk $(v_0,v_1,\dots,v_m)$ in $G$ with $v_0=\varphi_0(u_0)$, $v_m=\varphi_1(u_0)$, and $m>2k-1$.
+    Choosing $k$ large enough, I can ensure that $m\geq N+2$ and $m$ is odd.
+    Since $m$ is odd, $d(n):=m-2$ is also odd and satisfies $d(n)\geq N$.
+    For each $1\leq j\leq m$, since $(v_{j-1},v_j)\in E(G)=\mathrm{im}(\pi)$, I pick $e_j\in E$ with $\pi(e_j)=(v_{j-1},v_j)$.
+    Setting $d(x)=c(x)$ for all $x\neq n$ and noting $L^c_n=L^d_n$ (since $d\restriction n=c\restriction n$), I define $\varphi\in\Hom(L_{n+1}^d,G)$ by $\varphi^0=\varphi_0$, $\varphi^1=\varphi_1$, $\varphi(p_i)=v_{i+1}$ for $0\leq i\leq m-2=d(n)$, and the edge assignments $\varphi(u_0^\frown (0),p_0)=e_1$, $\varphi(p_j,p_{j+1})=e_{j+1}$ for $0\leq j<m-2$, and $\varphi(p_{m-2},u_0^\frown (1))=e_m$.
+    Then $\varphi\in\mathcal L^{+d}$.
 
     I prove (c) by contradiction.
     Recall that constructing $L^c_{n+1}$ from $L^c_n$ only requires knowing the value of $c(n)$.
-    Suppose that for all $d$ that are equal to $c$ except in the $n$-th value, $\mathcal L^{+d}=\bigcup_m\mathcal F^d_m$ where each $\mathcal F^d_m$ is a tiny Borel subset of $\Hom(L^d_{n+1},G)$.
-    For each $m$ and $d$, let $v^d_m\in V(L^d_n)$, $i^d_m<2$ and $n_d(m)$ be the minimal natural such that $\Phi(\mathcal F^d_m({v^d_m}^\frown(i^d_m)),m_d(n))$.
+    Suppose that for all $d$ that agree with $c$ except possibly in the $n$-th value, $\mathcal L^{+d}=\bigcup_m\mathcal F^d_m$ where each $\mathcal F^d_m$ is a tiny Borel subset of $\Hom(L^d_{n+1},G)$.
+    For each $m$ and $d$, let $w^d_m\in V(L^d_{n+1})$ and $k^d_m<\omega$ be such that $\Phi(\mathcal F^d_m(w^d_m),k^d_m)$.
+    
+    Since $w^d_m\in V(L^d_{n+1})$, it is either a \emph{non-path vertex} of the form $u^\smallfrown(i)$ for some $u\in V(L^c_n)$ and $i<2$, or a \emph{path vertex} $p_j$ for some $0\leq j\leq d(n)$ in the joining path.
+    I claim that in either case, there exists a vertex $u^d_m\in V(L^c_n)$ and $\ell^d_m<\omega$ such that $\Phi(\mathcal F^d_m({u^d_m}^\smallfrown(i^d_m)),\ell^d_m)$ for some $i^d_m<2$ where $u^d_m{}^\smallfrown(i^d_m)$ is a non-path vertex of $L^d_{n+1}$.
+
+    Indeed, if $w^d_m=u^\smallfrown(i)$ is already non-path, take $u^d_m=u$, $i^d_m=i$, $\ell^d_m=k^d_m$.
+    If $w^d_m=p_j$ is a path vertex of $L^d_{n+1}$, then the joining path connects $e_1^n{}^\smallfrown(0)$ to $e_1^n{}^\smallfrown(1)$ via $p_0,\dots,p_{d(n)}$.
+    Since $p_j$ and $e_1^n{}^\smallfrown(0)$ are at distance $j+1$ in $L^d_{n+1}$, every homomorphism $\varphi\in\mathcal F^d_m$ maps them to vertices that are at walk-distance $j+1$ in $G$.
+    Given any odd walk $(a_0,\dots,a_r)$ in $G$ with $a_0,a_r\in\mathcal F^d_m(e_1^n{}^\smallfrown(0))$, witnessed by $\varphi,\varphi'\in\mathcal F^d_m$, the walk $(\varphi(p_j),\dots,\varphi(e_1^n{}^\smallfrown(0))=a_0,\dots,a_r=\varphi'(e_1^n{}^\smallfrown(0)),\dots,\varphi'(p_j))$ has length $r+2(j+1)$, which has the same parity as $r$ (hence is also odd), and has endpoints in $\mathcal F^d_m(p_j)$.
+    By $\Phi(\mathcal F^d_m(p_j),k^d_m)$, $r+2(j+1)\leq 2k^d_m-1$, so $r\leq 2(k^d_m-j-1)-1$.
+    It follows that $\Phi(\mathcal F^d_m(e_1^n{}^\smallfrown(0)),\max\{0,k^d_m-j-1\})$.
+    Thus, set $u^d_m=e_1^n$, $i^d_m=0$, $\ell^d_m=\max\{0,k^d_m-j-1\}$.
     
     \begin{claim}
-        There is a Borel $B^d_m\supseteq\mathcal F^d_m(v_m^\frown(i_m))$ such that $\Phi(B^d_m,m_d(n))$.
+        For each $m$ and $d$, there is a Borel set $B^d_m\supseteq\mathcal F^d_m({u^d_m}^\smallfrown(i^d_m))$ such that $\Phi(B^d_m,\ell^d_m)$.
     \end{claim}
 
     \begin{claimproof}
-        Now use the First Reflection Theorem (Lemma~\ref{lemma:first-reflection}) to find 
+        I use the First Reflection Theorem (Lemma~\ref{lemma:first-reflection}).
+        Fix $\ell=\ell^d_m$.
+        It suffices to verify that $\Phi_\ell:=\{A\subseteq X:\Phi(A,\ell)\}$ is $\Pi^1_1$ on $\Sigma^1_1$.
+        Let $Y$ be Polish and $A\subseteq Y\times X$ be $\Sigma^1_1$.
+        Fix a Polish space $N$ and a continuous surjection $g\colon N\to A$.
+        For each odd $r\geq 2\ell+1$, define
+        \begin{align*}
+            C_r:=\{(y,x_0,\dots,x_r,n_0,n_1,\hat e_1,\dots,\hat e_r)\in Y\times X^{r+1}\times N^2\times E^r:{}\\
+            g(n_0)=(y,x_0)\land g(n_1)=(y,x_r)\land\textstyle\bigwedge_{j<r}\pi(\hat e_{j+1})=(x_j,x_{j+1})\}.
+        \end{align*}
+        Then $C_r$ is closed (by continuity of $g$ and $\pi$), and $D_r:=\mathrm{proj}_Y(C_r)$ is $\Sigma^1_1$.
+        Hence $D:=\bigcup_{r\text{ odd},\,r\geq 2\ell+1}D_r$ is $\Sigma^1_1$, and
+        $A_{\Phi_\ell}=\{y\in Y:A_y\in\Phi_\ell\}=Y\setminus D$
+        is $\Pi^1_1$.
+        Since $\mathcal F^d_m({u^d_m}^\smallfrown(i^d_m))$ is analytic and satisfies $\Phi(\cdot,\ell)$, the First Reflection Theorem yields the desired Borel superset $B^d_m$.
     \end{claimproof}
 
-    Take $\mathcal H^d_m=\{\varphi\in\mathcal L:\varphi(v^d_m)\in B^d_m\}$, which is a Borel tiny subset of $\Hom(L^d_n,G)=\Hom(L^c_n,G)$.
-    Indeed, notice that $\mathcal H^d_m(v^d_m)=\{\varphi(v^d_m):\varphi\in\mathcal H^d_m\}=\{\varphi(v^d_m):\varphi\in\mathcal L\land\varphi(v^d_m)\in B^d_m\}\subseteq B^d_m$.
+    Take $$\mathcal H^d_m=\{\varphi\in\mathcal L:\varphi(u^d_m)\in B^d_m\},$$ which is a Borel subset of $\Hom(L^c_n,G)$.
+    I claim that $\mathcal H^d_m$ is tiny.
+    Indeed, $\mathcal H^d_m(u^d_m)=\{\varphi(u^d_m):\varphi\in\mathcal L\land\varphi(u^d_m)\in B^d_m\}\subseteq B^d_m$, so $\Phi(\mathcal H^d_m(u^d_m),\ell^d_m)$.
     
-    Consider the large Borel set $\mathcal L_-$ obtained from removing from $\mathcal L$ the countable union of all tiny sets of the form $\mathcal H^d_m$.
-    By part (b), there exist $\varphi$ and $d$ such that $\varphi\in\mathcal L_-^{+d}\subseteq\mathcal L^{+d}\subseteq\Hom(L_{n+1}^d,G)$.
-    Suppose that $\varphi\in\mathcal F^d_m$, then $\varphi^{i_m^d}(v_m)=\varphi({v_m^d}^\frown(i^d_m))\in\mathcal F^d_m({v_m^d}^\frown(i_m^d))\subseteq B_m$, which means that $\varphi^{i_m^d}\in\mathcal H_m^d\cap\mathcal L_-=\emptyset$; a contradiction.
+    Now, the set of pairs $(u^d_m,i^d_m)$ ranges over the finite set $V(L^c_n)\times2$ (which does not depend on $d$), and $(m,d)$ range over countably many values.
+    Thus $\bigcup_{m,d}\mathcal H^d_m$ is a countable union of tiny sets, hence small.
+    The set $\mathcal L_-:=\mathcal L\setminus\bigcup_{m,d}\mathcal H^d_m$ is therefore large (and Borel).
+    By part (b), there exist $\varphi$ and $d$ such that $\varphi\in\mathcal L_-^{+d}\subseteq\mathcal L^{+d}$.
+    Then $\varphi\in\mathcal F^d_m$ for some $m$.
+    It follows that $\varphi^{i^d_m}(u^d_m)=\varphi({u^d_m}^\smallfrown(i^d_m))\in\mathcal F^d_m({u^d_m}^\smallfrown(i^d_m))\subseteq B^d_m$, hence $\varphi^{i^d_m}\in\mathcal H^d_m$.
+    But $\varphi\in\mathcal L_-^{+d}$ implies $\varphi^{i^d_m}\in\mathcal L_-$, contradicting $\mathcal L_-\cap\mathcal H^d_m=\emptyset$.
 \end{proof}
 
 \section{Construction of a minimal graph of Borel chromatic number at least 3}\label{sec:L0-construction}
 
-The goal of this section it to construct a family of graphs $\mathbb L_c$ indexed by reals $c\in\omega^\omega$.
+The goal of this section is to construct a family of graphs $\mathbb L_c$ indexed by reals $c\in\omega^\omega$.
 
-Now, fix $c$ and consider $X_c$ as the set of all tuples $(n,k,x)\in\mathbb N\times\mathbb N\times2^\mathbb N$ with $k\leq\max\{1,c(n)\}$ and notice that it is a closed subspace of the product space, and hence Polish.
+Now, fix $c$ and consider $X_c$ as the set of all tuples $(m,k,x)\in\mathbb N\times\mathbb N\times2^\mathbb N$ such that either $m=0$ and $k=0$, or $m\geq1$ and $k\leq c(m-1)$; this is a closed subspace of the product space, and hence Polish.
 Define, for each $(m,k,x)$ with $m\leq n$, $\pi_n(m,k,x)$ as the vertex of $L^c_n$ determined by these parameters.
 Formally, $\pi_n(m,k,x):=(p_k)^\smallfrown x\restriction(n-m)$.
 For example, $\pi_3(1,2,0110\cdots)=(p_2,0)$ can be seen in Figure~\ref{fig:L_n} labeled as $(2,0)$.
@@ -196,20 +229,30 @@ Some basic properties of $\mathbb L_c$ follow.
         
         \item $\mathbb L_c$ has no cycles and all vertices of $\mathbb L_c$ have degree 2 except for the vertex $(0,0,\{0\}^\omega)$, which has degree 1.
         
-        \item $\chi_B(\mathbb L_c)=3$.
+        \item If, additionally, $c$ takes only odd values, then $\chi_B(\mathbb L_c)=3$.
     \end{enumerate}
 \end{lemma}
 
 \begin{proof}
-    (c) That $\chi_B(\mathbb L_c)\leq3$ follows from Proposition~\ref{prop:brooks} and the preceding fact.
-    I argue the other inequality by contradiction.
-    Suppose then that there is a partition of $X$ into two independent sets.
-    Since $X$ is Polish, there is a non-meager class $B$ in the partition.
-    $B$ is comeager in some basic open set $[(n,k,t)]$.
-    Skipping some technical details, this means that I can find a vertex $(n,k,t^\smallfrown(\varepsilon)^\smallfrown x)\in B$, and moreover not connected to any member of $[(n,k,t)]\setminus B$.
-    I claim that $(n,k,t^\smallfrown(1-\varepsilon)^\smallfrown x)\in B$.
+    For (a), let $(n_i,k_i,x_i)\in X_c$ for $i<2$.
+    If they are in the same connected component, then for all large enough $n$, $\pi_n(n_0,k_0,x_0)$ and $\pi_n(n_1,k_1,x_1)$ lie in the same copy of $L^c_{n-1}$ inside $L^c_n$.
+    By the construction of $L^c_n$, two vertices $(p_{k_0})^\smallfrown x_0\restriction(n-n_0)$ and $(p_{k_1})^\smallfrown x_1\restriction(n-n_1)$ are in the same copy of $L^c_{n-1}$ in $L^c_n$ if and only if their last binary digits agree, that is, $x_0(n-n_0-1)=x_1(n-n_1-1)$ for all large $n$.
+    Writing $x_0=t_0^\smallfrown x$ and $x_1=t_1^\smallfrown x$ with $|t_0|=n_1-n_0+|t_1|$ (assuming $n_0\leq n_1$), we obtain the stated condition.
+    Conversely, if $x_i=t_i^\smallfrown x$ with $|t_0|-|t_1|=n_1-n_0$, then for all large $n$, $\pi_n(n_0,k_0,x_0)=(p_{k_0})^\smallfrown t_0^\smallfrown x\restriction r$ and $\pi_n(n_1,k_1,x_1)=(p_{k_1})^\smallfrown t_1^\smallfrown x\restriction r$ for some $r$, so they share a common tail and lie in the same connected component of $L^c_n$, hence of $\mathbb L_c$.
 
-    It then follows from Lemma~\ref{lemma:Ln_basics}(a) that these two vertices in $B$ are an odd distance apart, which is impossible.
+    For (b), every vertex of $L^c_n$ has degree at most $2$, so the same holds for $\mathbb L_c$.
+    It follows from acyclicity of the finite paths $L^c_n$ that $\mathbb L_c$ is acyclic.
+    The vertex $(0,0,0^\omega)$ maps under $\pi_n$ to $e_0^n=(p_0)^\smallfrown 0^n$, which is an endpoint of $L^c_n$, hence has degree $1$ in $L^c_n$ for all $n\geq1$.
+    Thus $(0,0,0^\omega)$ has degree $1$ in $\mathbb L_c$.
+    For any other vertex $(m,k,x)\in X_c$, the image $\pi_n(m,k,x)$ is an interior vertex of $L^c_n$ for all sufficiently large $n$, so it has degree exactly $2$.
+
+    (c) That $\chi_B(\mathbb L_c)\leq3$ follows from Proposition~\ref{prop:brooks} and part (b).
+    I argue the other inequality by contradiction.
+    Suppose that there is a Borel partition of $X_c$ into two independent sets $X_c=I_0\cup I_1$.
+    Since $X_c$ is Polish, the Baire category theorem guarantees that some $I_\varepsilon$ is non-meager, hence comeager in a basic open set $U=\{(m,k,x)\in X_c:x\restriction r=t\}$ for some $m$, $k$, $r$, and $t\in2^r$.
+    In particular, for a comeager set of $x\in2^\mathbb N$ extending $t$, $(m,k,x)\in I_\varepsilon$.
+    Since $(m,k,t^\smallfrown(0)^\smallfrown y)$ and $(m,k,t^\smallfrown(1)^\smallfrown y)$ are in the same connected component (by part (a)) for any $y\in2^\mathbb N$, and $I_\varepsilon$ is comeager in $U$, I can find $y$ such that both $(m,k,t^\smallfrown(0)^\smallfrown y)$ and $(m,k,t^\smallfrown(1)^\smallfrown y)$ lie in $I_\varepsilon$.
+    But by Lemma~\ref{lemma:Ln_basics}(a), these two vertices are an odd distance apart in $\mathbb L_c$ (as $(p_k)^\smallfrown t^\smallfrown(0)$ and $(p_k)^\smallfrown t^\smallfrown(1)$ are an odd distance apart in every $L^c_n$ for large enough $n$), contradicting $I_\varepsilon$ being independent.
 \end{proof}
 
 The main result is then split into two parts.
@@ -224,30 +267,53 @@ Moreover, $c$ can be chosen to be unbounded and take only odd values.
     Let $c,d\in\omega^\omega$ be unbounded and only taking odd values, then $\mathbb L_c$ and $\mathbb L_d$ are continuously homomorphically equivalent.
 \end{theorem}
 
+The proof of Theorem~\ref{thm:L0-hom-equivalent} is purely combinatorial: one constructs homomorphisms between $\mathbb L_c$ and $\mathbb L_d$ by iteratively extending partial maps along finite path components, using the ``large gap property'' guaranteed by unboundedness.
+The argument does not depend on the method used to establish Theorem~\ref{thm:L0-hom-equivalent-main}; see \cite[Proposition~4.2 and Claim~4.1]{L0paper} for details.
+
+Combining Theorems~\ref{thm:L0-hom-equivalent-main} and \ref{thm:L0-hom-equivalent}, and fixing any unbounded odd $c_0$ (e.g., $c_0(0)=1$ and $c_0(n)=2n-1$ for $n>0$), we recover the $L_0$ dichotomy of \cite{L0paper}:
+
+\begin{corollary}
+    Let $\mathbb L_0:=\mathbb L_{c_0}$.
+    For any analytic graph $G$ on a Polish space, exactly one of the following holds:
+    \begin{enumerate}
+        \item $\chi_B(G)\leq 2$;
+        \item $\mathbb L_0\to_cG$.
+    \end{enumerate}
+\end{corollary}
+
 \section{Proof of Theorem~\ref{thm:L0-hom-equivalent-main}}
 
-By Lemma~\ref{lemma:L0_basics}(c) and Fact~\ref{prop:brooks}, it is clear that both conditions cannot hold simultaneously.
+By Lemma~\ref{lemma:L0_basics}(c) and Fact~\ref{fact:chrom_transitive}, it is clear that both conditions cannot hold simultaneously.
 Now suppose that $G$ is an analytic graph of Borel chromatic number at least three.
 The theorem is proved by constructing a valid $c$ and a continuous homomorphism witnessing $\mathbb L_c\to_cG$.
 
 By Theorem~\ref{thm:small}, $V(G)$ is large.
-I recursively construct a function $c\in\omega^\omega$ and a sequence of large Borel sets $\mathcal L_n\subseteq\Hom(L^c_n, G)$ such that for all $n$,
+Fix compatible complete metrics $\rho$ on $V(G)$ and $\delta$ on $E$.
+Since $L^c_0=\bullet$, I identify $\Hom(L^c_0,G)$ with $V(G)$ and set $\mathcal L_0:=V(G)$, which is large.
+I recursively construct a function $c\in\omega^\omega$ (taking only odd values) and a sequence of large Borel sets $\mathcal L_n\subseteq\Hom(L^c_n, G)$ such that for all $n$,
 
 \begin{enumerate}
     \item $\mathcal L_{n+1}\subseteq\mathcal L_n^{+c}$;
-    \item for all $u\in V(L^c_n)$, the diameter of $\overline{\mathcal L_n(u)}$ is less than $2^{-n}$; and
-    \item for all $(u,v)\in E(L^c_n)$, the diameter of $\overline{\mathcal L_n(u,v)}$ is less than $2^{-n}$.
+    \item for all $u\in V(L^c_n)$, $\mathrm{diam}_\rho(\overline{\mathcal L_n(u)})< 2^{-n}$; and
+    \item for all $(u,v)\in E(L^c_n)$, $\mathrm{diam}_\delta(\overline{\mathcal L_n(u,v)})< 2^{-n}$.
 \end{enumerate}
 
-By (1), $\mathcal L_{n+1}(\pi_{n+1}(m+2,k,x))\subseteq\mathcal L_n(\pi_n(m,k,x))$ for all $n>m$ and similarly for the edges: {need to complete here}.
+Given $\mathcal L_n$ large, apply Lemma~\ref{lemma:Ln_basics}(c) to obtain $d\in\omega^\omega$ with $d\restriction n=c\restriction n$ and $\mathcal L_n^{+d}$ large; set $c(n):=d(n)$.
+To arrange conditions (2) and (3) for $n+1$: since $V(G)$ and $E$ can each be covered by countably many closed sets of $\rho$-diameter (respectively $\delta$-diameter) less than $2^{-(n+1)}$, and small sets form a $\sigma$-ideal, one may intersect with the preimages of these covers and discard the resulting small pieces, passing to a large Borel subset $\mathcal L_{n+1}\subseteq\mathcal L_n^{+c}$ satisfying (2) and (3) at stage $n+1$.
+Moreover, by choosing $c(n)$ sufficiently large using part (b) at each stage, $c$ can be made unbounded.
+
+By (1), for all $n\geq m$, $$\mathcal L_{n+1}(\pi_{n+1}(m,k,x))\subseteq\mathcal L_n(\pi_n(m,k,x));$$ indeed, each $\varphi\in\mathcal L_{n+1}$ satisfies $\varphi^{x(n-m)}\in\mathcal L_n$ and $$\varphi^{x(n-m)}(\pi_n(m,k,x))=\varphi(\pi_{n+1}(m,k,x)).$$
+By the same reasoning, if $\pi_n(m_0,k_0,x_0)$ and $\pi_n(m_1,k_1,x_1)$ are adjacent in $L^c_n$ for all large $n$, then \begin{align*}
+    \mathcal L_{n+1}(\pi_{n+1}(m_0,k_0,x_0),\pi_{n+1}(m_1,k_1,x_1))\\
+    \subseteq\mathcal L_n(\pi_n(m_0,k_0,x_0),\pi_n(m_1,k_1,x_1)).
+\end{align*}
 For $(m,k,x)\in X_c$, let $f(m,k,x)$ be the unique point in $$\bigcap_{n=m}^\infty\overline{\mathcal L_n(\pi_n(m,k,x))}=\bigcap_{n=0}^\infty\overline{\mathcal L_{n+m}((p_k)^\frown x\restriction n)}.$$
-The map $f:X_c\to X$ is continuous.
+The map $f\colon X_c\to X$ is continuous.
 
 It remains to check that it is a homomorphism from $\mathbb L_c$ to $G$.
-Suppose that $(m_i,k_i,x_i)_{i<2}$ are adjacent in $\mathbb L_0$, that is, for all $n\geq n_0:=\max\{m_0,m_1\}$, $\pi_n(m_i,k_i,x_i)_{i<2}\in L_n^c$.
+Suppose that $(m_i,k_i,x_i)_{i<2}$ are adjacent in $\mathbb L_c$, that is, for all $n\geq n_0:=\max\{m_0,m_1\}$, $\pi_n(m_i,k_i,x_i)$ are adjacent in $L_n^c$.
 There is a unique edge $e\in E$ inside $$\bigcap_{n\geq n_0}\overline{\mathcal L_n(\pi_n(m_0,k_0,x_0),\pi_n(m_1,k_1,x_1))}.$$
-By continuity, $(f(m_0,k_0,x_0),f(m_1,k_1,x_1))=\pi(e)\in G$.
-Thus the images form an edge of $G$.
+By continuity of $\pi$, $(f(m_0,k_0,x_0),f(m_1,k_1,x_1))=\pi(e)\in G$.
 
 %Bibliography
 \nocite{*}
