@@ -1,8 +1,20 @@
-steps:
+name: Build and Deploy LaTeX PDF
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write 
+
+    steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          submodules: recursive
+          submodules: recursive # This ensures your 'common' folder is pulled
 
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v3
@@ -12,4 +24,15 @@ steps:
       - name: Prepare Deployment Folder
         run: |
           mkdir public
+          # The compiler produces 'main.pdf' from 'main.tex'
           mv main.pdf public/paper.pdf
+          
+          # Optional: Add a dummy index.html so the site doesn't 404
+          echo '<html><body><a href="paper.pdf">View PDF</a></body></html>' > public/index.html
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./public
