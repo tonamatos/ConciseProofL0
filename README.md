@@ -1,6 +1,9 @@
 # A Concise Proof of the $L_0$ Dichotomy
 
-Find the latest rendered PDF [here](https://tonamatos.github.io/ConciseProofL0/paper.pdf).
+[![arXiv](https://img.shields.io/badge/arXiv-2604.02589-b31b1b.svg)](https://arxiv.org/abs/2604.02589)
+[![PDF](https://img.shields.io/badge/PDF-Latest_Build-blue.svg)](https://tonamatos.github.io/ConciseProofL0/paper.pdf)
+
+Find the latest rendered PDF [here](https://tonamatos.github.io/ConciseProofL0/paper.pdf) or view the preprint on [arXiv](https://arxiv.org/abs/2604.02589).
 
 ## Abstract
 
