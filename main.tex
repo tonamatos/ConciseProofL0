@@ -1,4 +1,4 @@
-\documentclass[11pt]{article}
+\documentclass[12pt]{article}
 
 \usepackage{common/tonas-papers}
 
@@ -11,7 +11,7 @@
     Carroy, Miller, Schrittesser, and Vidny\'anszky established the $L_0$ dichotomy: there is a Borel graph of Borel chromatic number three that admits a continuous homomorphism to every analytic graph of Borel chromatic number at least three.
     Their proof relies on a transfinite analysis of terminal approximations over a decreasing $\omega_1$-sequence of analytic sets.
 
-    I give a new, substantially shorter proof of this result by adapting the graph-theoretic framework recently introduced by Bernshteyn for the $G_0$ dichotomy.
+    This brief note offers a new, substantially shorter proof of this result by adapting the graph-theoretic framework recently introduced by Bernshteyn for the $G_0$ dichotomy.
     The central device is a $\sigma$-ideal of small sets of homomorphisms from finite path approximations into the target graph, where smallness is witnessed by a bounded odd-walk condition on vertex projections.
     The key lemma that largeness is preserved under the doubling operation is established via the First Reflection Theorem, replacing the original transfinite construction with a single Borel reflection argument.
     The continuous homomorphism from the canonical graph $\mathbb L_c$ into the target is then obtained as a limit of shrinking families of copies, in direct analogy with Bernshteyn's proof for $G_0$.
@@ -23,7 +23,7 @@ Throughout this entire work, $G$ denotes an analytic graph on a Polish space $V(
 That is, $X$ is a separable completely metrizable topological space, and $G$ is a symmetric and irreflexive relation on $X$ which, as a subspace of $X\times X$, is the continuous image of a Polish space.
 
 Denote the \emph{Borel chromatic number} of $G$ by $\chi_B(G)$, that is, $\chi_B(G)$ is the least number of colours $k$ needed to find a Borel mapping $c\colon X\to k$ in such a way that adjacent vertices in $G$ are given different colours.
-I employ the symbol $H\to_cG$ (respectively, $H\to_BG$) to abbreviate the fact that there is a continuous (respectively Borel) homomorphism from the analytic graph $H$ to the analytic graph $G$.
+We employ the symbol $H\to_cG$ (respectively, $H\to_BG$) to abbreviate the fact that there is a continuous (respectively Borel) homomorphism from the analytic graph $H$ to the analytic graph $G$.
 It is straightforward to show the following.
 
 \begin{fact}\label{fact:chrom_transitive}
@@ -180,7 +180,7 @@ Notice that, for two $c,d\in\omega^\omega$ and for every $n<\omega$, the conditi
     For each $m$ and $d$, let $w^d_m\in V(L^d_{n+1})$ and $k^d_m<\omega$ be such that $\Phi(\mathcal F^d_m(w^d_m),k^d_m)$.
     
     Since $w^d_m\in V(L^d_{n+1})$, it is either a \emph{non-path vertex} of the form $u^\smallfrown(i)$ for some $u\in V(L^c_n)$ and $i<2$, or a \emph{path vertex} $p_j$ for some $0\leq j\leq d(n)$ in the joining path.
-    I claim that in either case, there exists a vertex $u^d_m\in V(L^c_n)$ and $\ell^d_m<\omega$ such that $\Phi(\mathcal F^d_m({u^d_m}^\smallfrown(i^d_m)),\ell^d_m)$ for some $i^d_m<2$ where $u^d_m{}^\smallfrown(i^d_m)$ is a non-path vertex of $L^d_{n+1}$.
+    We claim that in either case, there exists a vertex $u^d_m\in V(L^c_n)$ and $\ell^d_m<\omega$ such that $\Phi(\mathcal F^d_m({u^d_m}^\smallfrown(i^d_m)),\ell^d_m)$ for some $i^d_m<2$ where $u^d_m{}^\smallfrown(i^d_m)$ is a non-path vertex of $L^d_{n+1}$.
 
     Indeed, if $w^d_m=u^\smallfrown(i)$ is already non-path, take $u^d_m=u$, $i^d_m=i$, $\ell^d_m=k^d_m$.
     If $w^d_m=p_j$ is a path vertex of $L^d_{n+1}$, then the joining path connects $e_1^n{}^\smallfrown(0)$ to $e_1^n{}^\smallfrown(1)$ via $p_0,\dots,p_{d(n)}$.
@@ -212,7 +212,7 @@ Notice that, for two $c,d\in\omega^\omega$ and for every $n<\omega$, the conditi
     \end{claimproof}
 
     Take $$\mathcal H^d_m=\{\varphi\in\mathcal L:\varphi(u^d_m)\in B^d_m\},$$ which is also a Borel subset of $\Hom(L^c_n,G)$.
-    I claim that $\mathcal H^d_m$ is tiny.
+    We claim that $\mathcal H^d_m$ is tiny.
     Indeed, $\mathcal H^d_m(u^d_m)=\{\varphi(u^d_m):\varphi\in\mathcal L\land\varphi(u^d_m)\in B^d_m\}\subseteq B^d_m$, so $\Phi(\mathcal H^d_m(u^d_m),\ell^d_m)$.
     
     Now, the set of pairs $(u^d_m,i^d_m)$ ranges over the finite set $V(L^c_n)\times2$ (which does not depend on $d$), and $(m,d)$ range over countably many values.
